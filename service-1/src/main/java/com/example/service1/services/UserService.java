@@ -4,6 +4,8 @@ import com.example.service1.entities.User;
 import com.example.service1.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
 @Service
@@ -21,15 +23,15 @@ public class UserService{
         if(user == null){
             return null;
         }
-        if(user.getPassword() == password){
+        if(user.getPassword().equalsIgnoreCase(password) ){
             return  user;
         }
         return  null;
     }
 
     public boolean register(String email, String password) {
-        User newUSer = new User(email,password);
-        if(userRepository.getUserByName(newUSer.getEmail()) != null){
+        User newUSer = new User(email, password);
+        if (userRepository.getUserByName(newUSer.getEmail()) != null) {
             return false;
         }
         userRepository.addUser(newUSer);
