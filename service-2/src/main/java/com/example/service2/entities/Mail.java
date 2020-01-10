@@ -1,19 +1,27 @@
-package com.example.service2.dto;
+package com.example.service2.entities;
 
-import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-public class MailDto implements Serializable {
-
+@Entity
+@Table(name = "mails", schema = "service2")
+public class Mail {
+    @Id
+    @Column(name = "id", length = 128, nullable = false)
+    private String id;
+    @Column(name = "to_email", length = 128, nullable = false)
     private String to;
-
+    @Column(name = "title", length = 128, nullable = false)
     private String title;
-
+    @Column(name = "body")
     private String body;
 
-    public MailDto() {
+    public Mail() {
     }
 
-    public MailDto(String to, String title, String body) {
+    public Mail(String to, String title, String body) {
         this.to = to;
         this.title = title;
         this.body = body;
@@ -41,6 +49,14 @@ public class MailDto implements Serializable {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     @Override
