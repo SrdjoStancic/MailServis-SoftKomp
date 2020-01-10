@@ -1,0 +1,16 @@
+version: '2.4'
+
+services: 
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    hostname: rabbitmq
+
+    ports:
+      - "5672:5672"
+      - "5555:15672"
+#    networks:
+#      - sk
+#
+#  networks:
+#    sk:
