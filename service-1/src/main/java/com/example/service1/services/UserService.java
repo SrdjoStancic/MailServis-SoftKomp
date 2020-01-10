@@ -1,5 +1,6 @@
 package com.example.service1.services;
 
+import com.example.service1.entities.NotificationTime;
 import com.example.service1.entities.User;
 import com.example.service1.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,5 +49,22 @@ public class UserService{
 
     public User getByUserName(String userName) {
         return userRepository.getUserByName(userName);
+    }
+    public User setNotificationTime(String userId, NotificationTime notificationTime){
+        User u = userRepository.getById(userId);
+        if(u != null){
+            u.setNotificationTime(notificationTime);
+            userRepository.update(u.getId(), u);
+        }
+        return u;
+    }
+    public List<User> getHourlyUsers(){
+        return  userRepository.getHourlyUsers();
+    }
+    public List<User> getDaylyUsers(){
+        return  userRepository.getDaylyUsers();
+    }
+    public List<User> getWeeklyUsers(){
+        return  userRepository.getWeeklyUsers();
     }
 }

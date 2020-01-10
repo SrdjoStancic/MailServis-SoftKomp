@@ -18,6 +18,9 @@ public class User implements Serializable{
     @Column(name = "password")
     private String password;
 
+    @Column(name="notification_time")
+    private NotificationTime notificationTime;
+
     public User(){}
     public User(String email, String password){
         this.email = email;
@@ -47,4 +50,13 @@ public class User implements Serializable{
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public NotificationTime getNotificationTime() {
+        return notificationTime;
+    }
+
+    public void setNotificationTime(NotificationTime notificationTime) {
+        this.notificationTime = notificationTime;
+    }
+
 }
