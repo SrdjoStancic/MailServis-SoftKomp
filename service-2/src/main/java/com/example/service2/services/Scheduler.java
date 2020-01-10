@@ -49,6 +49,25 @@ public class Scheduler {
     }
 
     //daily
+    @Scheduled(fixedRate = 5000)
+    public void reportDaylyTime() {
+        ResponseEntity<WeatherResponseDto> response = weatherService.getWeather();
+        if(response.getStatusCode() == HttpStatus.OK){
+            ArrayList<User> users = userService.getDailyUsers();
 
+            mailService.sendMails(users, "Hourly weather forecast", Utils.fromWeatherResponseDto(response.getBody()));
+        }
+
+    }
     //weekly
+    @Scheduled(fixedRate = 5000)
+    public void reportWeeklyCurrentTime() {
+        ResponseEntity<WeatherResponseDto> response = weatherService.getWeather();
+        if(response.getStatusCode() == HttpStatus.OK){
+            ArrayList<User> users = userService.getWeeklyUsers();
+
+            mailService.sendMails(users, "Hourly weather forecast", Utils.fromWeatherResponseDto(response.getBody()));
+        }
+
+    }
 }
