@@ -1,0 +1,81 @@
+
+<h1> Log in page! </h1>
+
+
+<!--
+<input [disabled]="disabledInput" type="text" placeholder="Enter your text">
+
+<input [disabled]="isDisabled()" type="text" placeholder="Enter your text">
+
+<input [disabled]="isDisabled()" type="text" [value]="currentUser.username"
+                                                  placeholder="Enter your text">
+
+<input [class.blue-bg]= "isBlueBg" type="text" placeholder="Enter your text">
+
+<input [style.background-color]="bgColor" type="text" placeholder="Enter your text">
+-->
+<!--
+<div>
+  <input type="text" #a>
+  <p>Value of input is: {{a.value}}</p>
+</div>
+
+<div>
+  <input type="text" #b (keyup)="0">
+  <p>Value of input is: {{b.value}}</p>
+</div>
+-->
+
+<!--
+<div>
+  <h3> Change email: </h3>
+  <input type = "text" name="name" #newMail>
+  <br>
+  <input type = "text" name="name1" #newMail1>
+  <br>
+  <input type = "text" name="name2" #newMail2>
+  <button (click)="createAcc(newMail.value , newMail1.value , newMail2.value)">Change</button>
+</div>
+-->
+<!--
+<ul>
+    <li *ngFor="let hero of _accounts">
+      {{hero.email}}
+    </li>
+  </ul>
+-->
+
+
+<div>
+  <div>
+    <label for="email1">Email:</label>
+    <input id="email1" type="text" name="email1" value="" #email1>
+  </div>
+  <div>
+    <label for="password1">Password:</label>
+    <input id="password1" type="text" name="password1" value="" #password1>
+  </div>
+  <p>Topics are: exchange rate , weather</p>
+  <div>
+    <label for="topic1">Topic:</label>
+    <input id="topic1" type="text" name="topic1" value="" #topic1>
+  </div>
+  <div>
+    <label for="notification1">Get notification per (hour,day,week):</label>
+    <input id="notification1" type="text" name="notification1" value="" #notification1>
+  </div>
+
+  <div>
+    <button (click)="createAcc(email1,password1,topic1,notification1)">Create</button>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+<div *ngFor="let acc of _accounts">
+  <h2>{{acc.email}} ({{acc.password}})</h2>
+  <p>Topic you are interested in : {{acc.topic}}</p>
+  <p>Get notification per : {{acc.notification}}</p>
+</div>
